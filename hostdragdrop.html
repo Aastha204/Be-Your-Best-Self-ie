@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Upload Podcast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #082d92;
+        }
+
+        .upload-container {
+            width: 800px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .drag-area {
+            border: 2px dashed #0d0233;
+            height: 250px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .drag-area.active {
+            border: 2px solid #0f45b8;
+        }
+
+        .drag-area .icon {
+            font-size: 50px;
+            color: #0f20b8;
+        }
+
+        .drag-area header {
+            font-size: 20px;
+            font-weight: 500;
+            color: #120fb8;
+        }
+
+        .drag-area h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #0f45b8;
+        }
+
+        .drag-area span {
+            font-size: 18px;
+            font-weight: 500;
+            color: #0f28b8;
+            margin: 10px 0 15px 0;
+        }
+
+        .drag-area button {
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            background: #0f28b8;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .drag-area input[type="file"] {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #0f28b8;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .drag-area img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .drag-area audio {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            background: #0f12b8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .card-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            color: #0f37b8;
+            margin: 20px 0;
+        }
+
+        .card audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <div class="input-group">
+            <label for="title">Podcast Title</label>
+            <input type="text" id="title" placeholder="Enter podcast title">
+        </div>
+        <div class="drag-area" id="image-drop-area">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <header>Drag & Drop to Upload Image</header>
+            <h3>File Supported: jpg, png</h3>
+            <span>OR</span>
+            <button>Browse Image</button>
+            <input type="file" id="image-input" accept="image/*">
+        </div>
+        <div class="drag-area" id="audio-drop-area">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <header>Drag & Drop to Upload Audio</header>
+            <h3>File Supported: mp3</h3>
+            <span>OR</span>
+            <button>Browse Audio</button>
+            <input type="file" id="audio-input" accept="audio/mp3, audio/mpeg">
+        </div>
+        <button class="submit-btn">Submit</button>
+    </div>
+    <script>
+        const imageDropArea = document.getElementById('image-drop-area'),
+              imageButton = imageDropArea.querySelector('button'),
+              imageInput = document.getElementById('image-input');
+
+        const audioDropArea = document.getElementById('audio-drop-area'),
+              audioButton = audioDropArea.querySelector('button'),
+              audioInput = document.getElementById('audio-input');
+
+        const submitBtn = document.querySelector('.submit-btn');
+
+        let imageFile, audioFile;
+
+        imageButton.addEventListener("click", () => {
+            imageInput.click();
+        });
+
+        audioButton.addEventListener("click", () => {
+            audioInput.click();
+        });
+
+        imageInput.addEventListener("change", function() {
+            imageFile = this.files[0];
+            imageDropArea.classList.add("active");
+            showImage();
+        });
+
+        audioInput.addEventListener("change", function() {
+            audioFile = this.files[0];
+            audioDropArea.classList.add("active");
+            showAudio();
+        });
+
+        imageDropArea.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            imageDropArea.classList.add("active");
+            imageDropArea.querySelector('header').textContent = "Release to Upload Image";
+        });
+
+        imageDropArea.addEventListener("dragleave", () => {
+            imageDropArea.classList.remove("active");
+            imageDropArea.querySelector('header').textContent = "Drag & Drop to Upload Image";
+        });
+
+        imageDropArea.addEventListener("drop", (event) => {
+            event.preventDefault();
+            imageFile = event.dataTransfer.files[0];
+            showImage();
+        });
+
+        audioDropArea.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            audioDropArea.classList.add("active");
+            audioDropArea.querySelector('header').textContent = "Release to Upload Audio";
+        });
+
+        audioDropArea.addEventListener("dragleave", () => {
+            audioDropArea.classList.remove("active");
+            audioDropArea.querySelector('header').textContent = "Drag & Drop to Upload Audio";
+        });
+
+        audioDropArea.addEventListener("drop", (event) => {
+            event.preventDefault();
+            audioFile = event.dataTransfer.files[0];
+            showAudio();
+        });
+
+        submitBtn.addEventListener("click", () => {
+            const title = document.getElementById('title').value;
+
+            if (!title || !imageFile || !audioFile) {
+                alert("Please upload all required files and fill in the title.");
+                return;
+            }
+
+            const readerImage = new FileReader();
+            const readerAudio = new FileReader();
+
+            readerImage.onload = function (e) {
+                const imageURL = e.target.result;
+
+                readerAudio.onload = function (e) {
+                    const audioURL = e.target.result;
+
+                    const podcastData = {
+                        title: title,
+                        image: imageURL,
+                        audio: audioURL
+                    };
+
+                    localStorage.setItem('podcastData', JSON.stringify(podcastData));
+                    alert("Your podcast has been uploaded successfully.");
+                }
+                readerAudio.readAsDataURL(audioFile);
+            }
+            readerImage.readAsDataURL(imageFile);
+        });
+
+        function showImage() {
+            let fileType = imageFile.type;
+            let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+            if (validExtensions.includes(fileType)) {
+                let fileReader = new FileReader();
+                fileReader.onload = () => {
+                    let fileURL = fileReader.result;
+                    let imgTag = `<img src="${fileURL}" alt="image">`;
+                    imageDropArea.innerHTML = imgTag;
+                }
+                fileReader.readAsDataURL(imageFile);
+            } else {
+                alert("This is not a valid image file!");
+                imageDropArea.classList.remove("active");
+                imageDropArea.querySelector('header').textContent = "Drag & Drop to Upload Image";
+            }
+        }
+
+        function showAudio() {
+            let fileType = audioFile.type;
+            let validExtensions = ["audio/mp3", "audio/mpeg"];
+            if (validExtensions.includes(fileType)) {
+                let fileReader = new FileReader();
+                fileReader.onload = () => {
+                    let fileURL = fileReader.result;
+                    let audioTag = `<audio controls src="${fileURL}"></audio>`;
+                    audioDropArea.innerHTML = audioTag;
+                }
+                fileReader.readAsDataURL(audioFile);
+            } else {
+                alert("This is not a valid audio file!");
+                audioDropArea.classList.remove("active");
+                audioDropArea.querySelector('header').textContent = "Drag & Drop to Upload Audio";
+            }
+        }
+        submitBtn.addEventListener("click", () => {
+    const title = document.getElementById('title').value;
+
+    if (!title || !imageFile || !audioFile) {
+        alert("Please upload all required files and fill in the title.");
+        return;
+    }
+
+    const readerImage = new FileReader();
+    const readerAudio = new FileReader();
+
+    readerImage.onload = function (e) {
+        const imageURL = e.target.result;
+
+        readerAudio.onload = function (e) {
+            const audioURL = e.target.result;
+
+            const podcastData = {
+                title: title,
+                image: imageURL,
+                audio: audioURL
+            };
+
+            localStorage.setItem('podcastData', JSON.stringify(podcastData));
+            alert("Your podcast has been uploaded successfully.");
+
+            // Reset fields and areas
+            document.getElementById('title').value = '';
+            imageFile = null;
+            audioFile = null;
+            imageDropArea.innerHTML = `
+                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <header>Drag & Drop to Upload Image</header>
+                <h3>File Supported: jpg, png</h3>
+                <span>OR</span>
+                <button>Browse Image</button>
+                <input type="file" id="image-input" accept="image/*">
+            `;
+            audioDropArea.innerHTML = `
+                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <header>Drag & Drop to Upload Audio</header>
+                <h3>File Supported: mp3</h3>
+                <span>OR</span>
+                <button>Browse Audio</button>
+                <input type="file" id="audio-input" accept="audio/mp3, audio/mpeg">
+            `;
+        }
+        readerAudio.readAsDataURL(audioFile);
+    }
+    readerImage.readAsDataURL(imageFile);
+});
+
+    </script>
+</body>
+</html>

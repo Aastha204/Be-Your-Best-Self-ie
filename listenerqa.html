@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Listener Q&A</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body,
+        html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(193, 225, 193);
+            height: 100%;
+            /* Ensure full height */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            height: 100vh;
+            /* Full viewport height */
+        }
+
+        .qa-section {
+            flex: 1;
+            margin-right: 20px;
+            overflow: auto;
+        }
+
+        .image-section {
+            display: none; /* Hide image section by default */
+            flex: 1;
+            background: url('https://images.radio.com/aiu-media/PodcastHeadphonesMic-e47c19b5-45de-4ec3-b791-d3ff1a5a98fc.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .qa-card {
+            margin-bottom: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .qa-question {
+            width: 100%;
+            padding: 10px;
+            text-align: left;
+            border: none;
+            background-color: #19946f;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .qa-answer {
+            display: none;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .user-input-section {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Media query for larger screens (desktops) */
+        @media (min-width: 769px) {
+            .image-section {
+                display: block; /* Show image section */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="qa-section">
+            <h1 align="center" style="font-size: 40px;">Listener Q&A</h1>
+            <div class="qa-card">
+                <button class="qa-question">What is the main focus of your podcast?</button>
+                <div class="qa-answer">
+                    Our podcast focuses on technology and innovation, exploring the latest trends and insights in the
+                    tech industry.
+                </div>
+            </div>
+            <div class="qa-card">
+                <button class="qa-question">What is the main focus of your podcast?</button>
+                <div class="qa-answer">
+                    Our podcast focuses on technology and innovation, exploring the latest trends and insights in the
+                    tech industry.
+                </div>
+            </div>
+            <div class="qa-card">
+                <button class="qa-question">What is the main focus of your podcast?</button>
+                <div class="qa-answer">
+                    Our podcast focuses on technology and innovation, exploring the latest trends and insights in the
+                    tech industry.
+                </div>
+            </div>
+            <div class="qa-card" style="display:none;">
+                <button class="qa-question">Can anyone start a podcast?</button>
+                <div class="qa-answer">
+                    Absolutely! Podcasting is open to everyone and can be a great way to share your interests or
+                    expertise with the world.
+                </div>
+            </div>
+            <div class="qa-card" style="display:none;">
+                <button class="qa-question">How often do you release new episodes?</button>
+                <div class="qa-answer">
+                    We release new episodes weekly, typically on Wednesdays.
+                </div>
+            </div>
+            <!-- Button for toggling visibility of hidden QA cards -->
+            <p>
+                <button id="seeMore" style="background: none; border: none; color: blue; cursor: pointer;">see more...</button>
+            </p>
+
+            <!-- Additional questions can be added here -->
+            <div class="user-input-section">
+                <h2>Have a question? Ask us here:</h2>
+                <form action="submit-your-question.php" method="POST">
+                    <label for="userQuestion">Your Question:</label>
+                    <textarea id="userQuestion" name="userQuestion" placeholder="Write something..."
+                        style="height:100px" required></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="image-section">
+            <!-- Background image is applied via CSS -->
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.qa-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        document.getElementById('seeMore').addEventListener('click', function () {
+            const hiddenCards = document.querySelectorAll('.qa-card');
+            let isExpanded = this.innerText.toLowerCase().includes('less'); // Check if text includes 'less'
+            
+            hiddenCards.forEach(card => {
+                if (isExpanded) {
+                    card.style.display = 'none'; // Hide the card
+                } else if (card.style.display === 'none' || card.style.display === '') {
+                    card.style.display = 'block'; // Show the card
+                }
+            });
+
+            this.innerText = isExpanded ? 'see more...' : 'see less...'; // Toggle the button text
+        });
+
+        // Handling form submission
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const userQuestion = document.getElementById('userQuestion').value;
+            
+            // Display an alert message
+            alert("Your question has been submitted!");
+            
+            // Log the submitted question to the console
+            console.log("Submitted question: " + userQuestion);
+        });
+    </script>
+</body>
+
+</html>

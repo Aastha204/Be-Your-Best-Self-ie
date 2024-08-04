@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>Be-your-Best-Self(ie)</title>
+
+  <!-- 
+    - favicon link
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- Podcast -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- podcast link -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="active" data-header>
+    <div class="container">
+
+      <!-- 
+        - overlay
+      -->
+      <div class="overlay" data-overlay></div>
+
+      <a href="#" class="logo">
+        <img  src="./assets/images/logo.svg" alt="Micro logo" height="50px" width="50px" style="margin-bottom: 10px;">
+        <p style="color: rgb(242, 137, 236); font-size: 16px;">BE YOUR BEST SELF(IE)</p>
+      </a>
+
+      <button class="nav-toggle-btn" data-nav-toggle-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#hero" class="navbar-link">Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#podcast" class="navbar-link" id="podcast-link">Podcast</a>
+
+            <!-- <a href="#podcast" class="navbar-link" onclick="podcast()">Podcast</a> -->
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" onclick="hostpage()">Host</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" onclick="blogpage()">Blog</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" onclick="redirect()">Contact</a>
+          </li>
+
+        </ul>
+
+        <div class="navbar-actions">
+
+          <!-- <button class="navbar-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button> -->
+          <div class="flexbox">
+            <div class="search">
+              <div>
+                <input type="text" placeholder="Search . . ." required>
+                
+              </div>
+            </div>
+          </div>
+
+          <button class="navbar-btn">
+            <ion-icon name="log-in-outline" onclick="login()"></ion-icon>
+          </button>
+
+          <button class="navbar-btn">
+            <ion-icon name="musical-notes-outline" onclick="playlist()"></ion-icon>
+          </button>
+
+          <button class="btn">
+            <ion-icon name="logo-paypal"></ion-icon>
+
+            <span onclick="subscription()">Subscribe</span>
+          </button>
+
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article class="container">
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="hero">
+
+        <div class="hero-content">
+
+          <img src="./assets/images/hero-title.png" alt="Podcast" class="hero-title">
+
+          <p class="hero-text">
+            Welcome to "Be Your Best-Self(ie)," the podcast that takes you on a journey to optimal health and wellness! 
+          </p>
+
+          <div class="hero-btn-group">
+            <button class="btn btn-primary">
+              <ion-icon name="headset"></ion-icon>
+              <a href="#podcast" style="color:white">Listen Now</a>
+            </button>
+            <div class="btn-link-wrapper">
+              <p class="btn-title">Subscribe On:</p>
+              <a href="#" class="btn-link">
+                <ion-icon name="logo-apple"></ion-icon>
+                <span>Apple Music</span>
+              </a>
+
+              <a href="#" class="btn-link">
+                <ion-icon name="logo-soundcloud"></ion-icon>
+
+                <span>SoundCloud</span>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="hero-banner"></div>
+
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PODCAST
+      -->
+      <!-- 
+    - #PODCAST
+  -->
+<section class="podcast" id="podcast">
+  <div class="container">
+      <div class="panel">
+          <div class="ring">
+              <div class="card card1"></div>
+              <div class="border">
+                  <p class="title">Health</p>
+                  <div class="slide">
+                      <h6 class="para">In the health section, discover a curated selection of podcasts catering to your well-being and interests:</h6>
+                      <!-- <div class="line">
+                        <button id="listenNowButton" class="btn btn-primary">
+                          <ion-icon name="headset"></ion-icon>
+                          <span >Listen Now</span>
+                        </button>
+                      </div>
+                      -->
+                     
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+      <div class="panel">
+          <div class="ring">
+              <div class="card card2"></div>
+              <div class="border">
+                  <p class="title">Music</p>
+                  <div class="slide">
+                      <h6 class="para">Indulge in musical podcasts designed to soothe your mind and elevate your relaxation experience </h6>
+                      <!-- <div class="line">
+                        <button class="btn btn-primary">
+                          <ion-icon name="headset"></ion-icon>
+            
+                          <span>Listen Now</span>
+                        </button>
+                      </div> -->
+                    
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="panel">
+          <div class="ring">
+              <div class="card card3"></div>
+              <div class="border">
+                  <p class="title">Education</p>
+                  <div class="slide">
+                      <h6 class="para">Explore podcasts curated specifically to aid students in their educational journey, offering insights, tips, and inspiration</h6>
+                      <div class="line">
+                          
+
+                      </div>
+                      <!-- <div class="line">
+                        
+                          <button class="btn btn-primary">
+                            <ion-icon name="headset"></ion-icon>
+              
+                            <span>Listen Now</span>
+                          </button>
+              
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="dropdown-container">
+    <div class="dropdown">
+      <button class="dropbtn">Listen Now</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="gynaec()">Gynaecologist</a>
+        <a href="#" onclick="nutrition()">Nutritionist</a>
+        <a href="#">Fitness</a>
+        <a href="#">Emergency Remedies</a>
+        <a href="#">Dermatologists</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Listen Now</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="music()">Instrument Playing</a>
+        <a href="#">Therapy Sessions</a>
+        <a href="#">Listening to Music</a>
+        <a href="#">Understanding Music</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Listen Now</button>
+      <div class="dropdown-content">
+        
+        <a href="#">Interviews</a>
+        <a href="#">Competitive Exam</a>
+        <a href="#">Real-time Experience</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="wrap">
+  <div class="tile" style="width:320px;z-index:0" id="tile1">
+      <img src='https://i.pinimg.com/564x/55/35/5f/55355f9777d556f49eeb883883682ecf.jpg'/>
+      <div class="text">
+          <h1>Health</h1>
+          <h2 class="animate-text">Welcome to Health Section</h2>
+          <p class="animate-text">In the health section, discover a curated selection of podcasts catering to your well-being and interests.</p>
+          <div class="dots" onclick="toggleDropdown(event)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <div class="dropdown-content1">
+                    
+                    <a href="#" onclick="gynaec()">Gynaecologist</a>
+                    <a href="#" onclick="nutrition()">Nutritionist</a>
+                    <a href="#">Fitness</a>
+                    <a href="#">Emergency Remedies</a>
+                    <a href="#">Dermatologists</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="tile" style="width:320px;z-index:0" id="tile2">
+      <img src='https://i.pinimg.com/564x/39/0d/2f/390d2f36930f4b9a79360522c1a15900.jpg'/>
+      <div class="text">
+          <h1>Music</h1>
+          <h2 class="animate-text">Welcome to Music Section</h2>
+          <p class="animate-text">Indulge in musical podcasts designed to soothe your mind and elevate your relaxation experience.</p>
+          <div class="dots" onclick="toggleDropdown(event)">
+              <span></span>
+              <span></span>
+              <span></span>
+              <div class="dropdown-content1">
+                
+                <a href="#" onclick="music()">Instrument Playing</a>
+                <a href="#">Therapy Sessions</a>
+                <a href="#">Listening to Music</a>
+                <a href="#">Understanding Music</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="tile" style="width:320px;z-index:0" id="tile3">
+      <img src='https://i.pinimg.com/564x/44/e7/80/44e78008f91b8d2f5d12474e7f2f2c98.jpg'/>
+      <div class="text">
+          <h1>Education</h1>
+          <h2 class="animate-text">Welcome to Education Section</h2>
+          <p class="animate-text">Explore podcasts curated specifically to aid students in their educational journey, offering insights, tips, and inspiration.</p>
+          <div class="dots" onclick="toggleDropdown(event)">
+              <span></span>
+              <span></span>
+              <span></span>
+              <div class="dropdown-content1">
+                <a href="#">Interviews</a>
+                <a href="#">Competitive Exam</a>
+                <a href="#">Real-time Experience</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <section class="newsletter">
+        <div class="newsletter-card">
+
+          <div class="card-content">
+            <h3 class="h3 card-title">Sign Up For Our Newsletter. It's Free!</h3>
+
+            <p class="card-text">
+              Get updated newsletter from our best experts and recommendations from all over world health care.
+            </p>
+          </div>
+
+          <form action="" class="card-form" data-form>
+            <input type="email" name="email_address" placeholder="Your Email Address" required class="input-field"
+              data-input>
+
+            <button type="submit" class="btn btn-primary" disabled data-submit>Subscribe</button>
+          </form>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer>
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img style="height: 70px; width: 60px;" src="./assets/images/logo.svg" alt="Micro logo">
+            <p style="color: rgb(230, 151, 235);">BE-YOUR BEST SELFIE</p>
+          </a>
+
+          <p class="footer-text">
+            "Be Your Best-Self(ie)," the podcast that takes you on a journey to optimal health and wellness! In today's fast-paced world, prioritizing our well-being can often feel like a challenge. But fear not, because here at "Be Your Best-Self(ie)," we're dedicated to providing you with the tools, knowledge, and inspiration to help you live your healthiest and happiest life.
+
+          </p>
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-link-title">Start A Conversation</p>
+          </li>
+
+          <li>
+            <a href="mailto:hello@micro.com" class="footer-link">beyourbestselfie@gmail.com</a>
+          </li>
+
+          <li>
+            <a href="tel:+0123454678" class="footer-link">+91 01234 54678</a>
+          </li>
+
+          <li>
+            <a href="tel:+15780346789" class="footer-link">+91 0543 034-6789</a>
+          </li>
+
+        </ul>
+
+        <div class="social-list-box">
+
+          <p class="social-title">Follow Us On:</p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-soundcloud"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-apple"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          &copy; 2024 <a href="#">Be-Your-Best-Self(ie)</a>. All Rights Reserved
+        </p>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+
+    function hostpage()
+    {
+      window.location.href="host_index.html";
+    }
+    function redirect()
+    {
+      window.location.href="contactpage.html";
+    }
+    function login()
+    {
+      window.location.href="loginsignuppage.html";
+    }
+    function blogpage()
+    {
+      window.location.href="blog.html";
+    }
+    function gynaec()
+    {
+      window.location.href="gynaec.html";
+    }
+    function nutrition()
+    {
+      window.location.href="nutrition.html";
+    }
+    function music()
+    {
+      window.location.href="music.html";
+    }
+    function playlist()
+    {
+      window.location.href="playlist.html";
+    }
+    function subscription()
+    {
+      window.location.href="subsciption.html";
+    }
+
+    function toggleDropdown(event) {
+  const dots = event.currentTarget;
+  const dropdown = dots.querySelector('.dropdown-content1');
+  // Toggle visibility
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  // Stop event propagation to prevent closing the dropdown immediately
+  event.stopPropagation();
+}
+
+document.querySelectorAll('.tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    document.querySelectorAll('.tile').forEach(t => {
+      t.style.zIndex = 1; // Reset z-index to default value
+    });
+    tile.style.zIndex = 5; // Set a higher z-index for the clicked tile
+  });
+});
+
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.dots')) {
+    document.querySelectorAll('.dropdown-content1').forEach(function(dropdown) {
+      dropdown.style.display = 'none';
+    });
+  }
+});
+
+
+function updateLink() {
+  const link = document.getElementById('podcast-link');
+  const width = window.innerWidth;
+
+  if (width <= 768) { // Assuming 768px is the breakpoint for mobile
+    link.href = "#wrap";
+  } else {
+    link.href = "#podcast";
+  }
+}
+
+// Run the function on initial load
+window.onload = updateLink;
+
+// Run the function whenever the window is resized
+window.onresize = updateLink;
+
+
+
+
+    
+    // Optional: Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.style.visibility === 'visible') {
+        openDropdown.style.opacity = 0;
+        openDropdown.style.visibility = 'hidden';
+        openDropdown.style.transform = 'translateY(-10px)';
+      }
+    }
+  }
+}
+
+    window.addEventListener('load', () => {
+  var
+  carousels = document.querySelectorAll('.carousel');
+
+
+  for (var i = 0; i < carousels.length; i++) {
+    carousel(carousels[i]);
+  }
+});
+
+function carousel(root) {
+  var
+  figure = root.querySelector('figure'),
+  nav = root.querySelector('nav'),
+  images = figure.children,
+  n = images.length,
+  gap = root.dataset.gap || 0,
+  bfc = ('bfc' in root.dataset),
+
+  theta = 2 * Math.PI / n,
+  currImage = 0;
+
+
+  setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
+  window.addEventListener('resize', () => {
+    setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
+  });
+
+  setupNavigation();
+
+  function setupCarousel(n, s) {
+    var
+    apothem = s / (2 * Math.tan(Math.PI / n));
+
+
+    figure.style.transformOrigin = `50% 50% ${-apothem}px`;
+
+    for (var i = 0; i < n; i++)
+    images[i].style.padding = `${gap}px`;
+    for (i = 1; i < n; i++) {
+      images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
+      images[i].style.transform = `rotateY(${i * theta}rad)`;
+    }
+    if (bfc)
+    for (i = 0; i < n; i++)
+    images[i].style.backfaceVisibility = 'hidden';
+
+    rotateCarousel(currImage);
+  }
+
+  function setupNavigation() {
+    nav.addEventListener('click', onClick, true);
+
+    function onClick(e) {
+      e.stopPropagation();
+
+      var t = e.target;
+      if (t.tagName.toUpperCase() != 'BUTTON')
+      return;
+
+      if (t.classList.contains('next')) {
+        currImage++;
+      } else
+      {
+        currImage--;
+      }
+
+      rotateCarousel(currImage);
+    }
+
+  }
+
+  function rotateCarousel(imageIndex) {
+    figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
+  }
+
+}
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Podcast Listening Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  /* padding: 0; */
+}
+
+.top-episodes {
+  background-color: #f2f2f2;
+  /* padding: 20px; */
+}
+
+
+.top-episodes-card {
+  width: 100%;
+  height:300px;
+  /* margin: 0 auto; */
+  text-align: center;
+  /* background-color: #dc9fd1; */
+  background-image: url("https://cdn.pixabay.com/photo/2017/11/15/09/28/music-player-2951399_1280.jpg");
+  background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+}
+.top-episodes-card img {
+  /* max-width: 100%; Ensure image fits within the container */
+  /* height: 50px; */
+  margin-top: 20px;
+}
+
+.listen-now-btn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.listen-now-btn:hover {
+  background-color: #0f78da;
+}
+
+.all-episodes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px;
+  display: inline-block;
+}
+
+.episode-card {
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #faf1fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.episode-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.play-btn {
+  background-color: #061d2c;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.play-btn:hover {
+  background-color: #609dc4;
+}
+/* Add hover effect */
+.episode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(16, 208, 211, 0.891);
+}
+
+  </style>
+</head>
+<body>
+    <h2 style="text-align: center; color: #f1eef0; background-color: #1fa497;">Top Episodes of the Week- Instrumental playing</h2>
+    <div class="top-episodes-card">
+        <!-- <img src="https://media.istockphoto.com/id/1412634953/photo/podcast-recording-station.jpg?s=612x612&w=0&k=20&c=224aSXhwJ4wBm7TgAkR6vLvzz_zIK-TNJ-FtEypVJx0=" >  -->
+        
+        <button class="listen-now-btn" style="margin-top: 250px;">Listen Now</button>
+      </div>
+    <div class="all-episodes">
+        <!-- Add content for all episodes here -->
+        <div class="episode-card">
+          <img src="https://wallpapertag.com/wallpaper/middle/6/f/6/401471-dj-background-1920x1440-picture.jpg" alt="Episode 1"> <!-- Add image here -->
+          <h3> Episode 1</h3>
+          <p>Date: April 30, 2024</p>
+          <p>Time: 10:00 AM</p>
+          <button class="play-btn">Play</button>
+        </div>
+        <!-- Add more episode cards here -->
+      </div>
+      
+  
+  <div class="all-episodes">
+    <!-- Add content for all episodes here -->
+    <div class="episode-card">
+      <img src="https://getwallpapers.com/wallpaper/full/a/c/8/1359302-dj-wallpaper-1920x1200-4k.jpg" alt="Episode 1">
+      <h3>Episode 2</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn">Play</button>
+    </div>
+    <!-- Add more episode cards here -->
+  </div>
+  
+  <div class="all-episodes">
+    <!-- Add content for all episodes here -->
+    <div class="episode-card">
+      <img src="https://bloghocpiano.com/wp-content/uploads/2021/03/714745-beautiful-dj-music-wallpaper-2880x1800-hd.jpg" alt="Episode 1">
+      <h3> Episode 3</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn">Play</button>
+    </div>
+    
+  </div>
+  
+  <div class="all-episodes">
+    <!-- Add content for all episodes here -->
+    <div class="episode-card">
+      <img src="https://wallpaperbat.com/img/95854-wallpaper-mixing-console-dj-controller-image-for-desktop.jpg" alt="Episode 1">
+      <h3> Episode 4</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn">Play</button>
+    </div>
+  </div>
+</body>
+</html>

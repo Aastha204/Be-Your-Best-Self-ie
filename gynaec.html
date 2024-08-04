@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Podcast Listening Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /*images effect*/
+    carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+
+    .carousel {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      animation: slide 20s infinite;
+    }
+
+    .carousel img {
+      width: 100%;
+      flex-shrink: 0;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      100% { transform: translateX(0); }
+    }
+
+    .top-episodes {
+      background-color: #f2f2f2;
+    }
+
+   /* .top-episodes-card {
+      width: 100%;
+      height: 300px;
+      text-align: center;
+      /* background-image: url("https://media.healthecareers.com/wp-content/uploads/2022/02/11211534/ob-gyn.jpg"); 
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    } */
+
+    .listen-now-btn {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 250px;
+    }
+
+    .listen-now-btn:hover {
+      background-color: #c50d6f;
+    }
+
+    .all-episodes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .episode-card {
+      width: 300px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #faf1fa;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden; /* Ensure content is clipped to the border radius */
+    }
+
+    .episode-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    .episode-card video {
+      position: absolute;
+      top: 20px; /* Adjust this value to match the padding top of the card */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 200px); /* Adjust this value to match the padding top of the card */
+      border-radius: 8px;
+      object-fit: cover;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .episode-card img.hidden {
+      opacity: 0;
+    }
+
+    .episode-card video.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .play-btn {
+      background-color: #061d2c;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .play-btn:hover {
+      background-color: #609dc4;
+    }
+
+    .episode-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(212, 41, 189, 0.891);
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; color: #f1eef0; background-color: #cd2c85;">
+    Top Episodes of the Week - by top Gynaecologist health experts
+  </h2>
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="https://t4.ftcdn.net/jpg/01/33/33/41/360_F_133334155_X23HzbJKawbIgXVaub4bPM8CjpkS5uMS.jpg" alt="Top Episode 1">
+      <img src="https://images.unsplash.com/photo-1625134673337-519d4d10b313?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D" alt="Top Episode 2">
+      <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?cs=srgb&dl=pexels-pixabay-40568.jpg&fm=jpg" alt="Top Episode 3">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/023/219/643/small_2x/medicine-doctor-with-stethoscope-patients-come-to-the-hospital-background-generative-ai-photo.jpg" alt="Top Episode 4">
+    </div>
+  </div>
+  <div class="all-episodes">
+    <div class="episode-card">
+      <img src="https://img.freepik.com/free-vector/women-climacteric-concept_23-2148658422.jpg" alt="Episode 1">
+      <video src="https://videos.pexels.com/video-files/8534604/8534604-uhd_3840_2160_30fps.mp4" loop muted></video> <!-- Replace with your video path -->
+      <h3>Episode 1</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn" onclick="play()">Play</button>
+    </div>
+    <div class="episode-card">
+      <img src="https://st3.depositphotos.com/1177973/12519/i/450/depositphotos_125199602-stock-photo-gynecology-concept-stethoscope-with-pills.jpg" alt="Episode 2">
+      <video src="https://videos.pexels.com/video-files/4769182/4769182-sd_540_960_24fps.mp4" loop muted></video> <!-- Replace with your video path -->
+      <h3>Episode 2</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn"  onclick="play()" >Play</button>
+    </div>
+    <div class="episode-card">
+      <img src="https://img.freepik.com/premium-photo/concept-health-insurance-family-protection-virtual-screen-doctor-touching-button-medicaid-concept-medicare-high-quality-photo_297535-2948.jpg" alt="Episode 3">
+      <video src="https://videos.pexels.com/video-files/4132751/4132751-hd_1280_720_25fps.mp4" loop muted></video> <!-- Replace with your video path -->
+      <h3>Episode 3</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn"  onclick="play()">Play</button>
+    </div>
+    <div class="episode-card">
+      <img src="https://thedo.osteopathic.org/wp-content/uploads/2023/04/OBGYN.png" alt="Episode 4">
+      <video src="https://videos.pexels.com/video-files/7195984/7195984-hd_720_1366_25fps.mp4" loop muted></video> <!-- Replace with your video path -->
+      <h3>Episode 4</h3>
+      <p>Date: April 30, 2024</p>
+      <p>Time: 10:00 AM</p>
+      <button class="play-btn" onclick="play()">Play</button>
+    </div>
+  </div>
+  <script>
+    const episodeCards = document.querySelectorAll('.episode-card');
+
+    episodeCards.forEach(card => {
+      const img = card.querySelector('img');
+      const video = card.querySelector('video');
+
+      img.addEventListener('mouseover', () => {
+        img.classList.add('hidden');
+        video.classList.add('visible');
+        video.play();
+      });
+
+      img.addEventListener('mouseout', () => {
+        if (!video.paused) {
+          img.classList.add('hidden');
+          video.classList.add('visible');
+        } else {
+          img.classList.remove('hidden');
+          video.classList.remove('visible');
+        }
+      });
+    });
+  </script>
+  <script>
+    function play()
+    {
+      window.location.href="newmusic.html";
+    }
+  </script>
+</body>
+</html>

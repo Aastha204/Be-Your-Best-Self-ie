@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Subscription Plans</title>
+    <style>
+        body {
+            background-color: #2c003e; /* Dark background */
+            font-family: 'Arial', sans-serif;
+            color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .subscription-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .subscription-header h2 {
+            font-size: 36px;
+            color: #f5f5f5;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 -15px;
+        }
+        .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .subscription-card {
+            background: linear-gradient(145deg, #4a004d, #6d1f65); /* Gradient background */
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .subscription-card:hover {
+            box-shadow: 0 12px 24px rgba(255, 105, 180, 0.6); /* Light pink shadow */
+        }
+        .subscription-card:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(113, 15, 151, 0.3), rgba(113, 15, 151, 0.6));
+            transform: rotate(45deg);
+            transition: all 0.5s ease-in-out;
+        }
+        .subscription-card:hover:before {
+            transform: rotate(0deg);
+        }
+        .subscription-card h5 {
+            margin-bottom: 15px;
+            font-size: 26px;
+            color: f5f5f5; /* Light text color */
+        }
+        .subscription-card p {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #e1bee7; /* Light purple color */
+        }
+        .btn-subscribe {
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: none;
+            background-color: #d81b60; /* Dark pink button background */
+            color: #ffffff; /* Light text on button */
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .btn-subscribe:hover {
+            background-color: #c2185b; /* Slightly lighter dark pink on hover */
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .col-md-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="subscription-header">
+        <h2>Get a Subscription to Unlock More Features</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subscription-card">
+                    <h5>Monthly Plan with Ads</h5>
+                    <p>Price: $9.9/month</p>
+                    <p>Enjoy thousands of hours of podcasts</p>
+                    <p>Enjoy high quality</p>
+                    <p>Upload your podcast/blog</p>
+                    <p>Includes ads</p>
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subscription-card">
+                    <h5>Monthly Plan without Ads</h5>
+                    <p>Price: $14.9/month</p>
+                    <p>Enjoy thousands of hours of podcasts</p>
+                    <p>Enjoy high quality</p>
+                    <p>Upload your podcast/blog</p>
+                    <p>No ads</p>
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subscription-card">
+                    <h5>Yearly Plan with Ads</h5>
+                    <p>Price: $99.5/year</p>
+                    <p>Enjoy thousands of hours of podcasts</p>
+                    <p>Enjoy high quality</p>
+                    <p>Upload your podcast/blog</p>
+                    <p>Includes ads</p>
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subscription-card">
+                    <h5>Yearly Plan without Ads</h5>
+                    <p>Price: $150.9/year</p>
+                    <p>Enjoy thousands of hours of podcasts</p>
+                    <p>Enjoy high quality</p>
+                    <p>Upload your podcast/blog</p>
+                    <p>No ads</p>
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

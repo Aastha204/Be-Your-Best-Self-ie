@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blog Post Uploader</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column; /* Organizes content vertically */
+        }
+        .container {
+            display: flex;
+            flex: 1; /* Allows the container to expand and fill available space */
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 0; /* Prevents the container from shrinking below the size of its contents */
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex: 1;
+            margin-right: 20px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"], #blogs {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Spacing above the button */
+        }
+        input[type="submit"]:hover, #blogs:hover {
+            background-color: #004494;
+        }
+        .image-container {
+            display: none; /* Hide image container by default */
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        footer {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Media query for larger screens (desktops) */
+        @media (min-width: 769px) {
+            .image-container {
+                display: flex; /* Show image container */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="blogForm">
+            <h1>Upload Your Blog Post</h1>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter blog title" required>
+
+            <label for="Section">Section:</label>
+            <input type="text" id="Section" name="Section" placeholder="Health/Education/Music" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10" placeholder="Write your content here" required></textarea>
+
+            <input type="submit" value="Submit Post">
+        </form>
+        <div class="image-container">
+            <img src="assets/images/blog_upload.jpeg" alt="Blog Writing Process">
+        </div>
+    </div>
+    <footer>
+        <button id="blogs" style="padding: 25px; font-size: 20px;" onclick="redirect()">See More Blogs</button>
+    </footer>
+    <script>
+        document.getElementById('blogForm').onsubmit = function(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+            console.log('Title:', title);
+            console.log('Content:', content);
+
+            alert('Blog post submitted! (Check console for the data)');
+
+            // Clear the form
+            document.getElementById('title').value = '';
+            document.getElementById('content').value = '';
+        }
+        function redirect() {
+            window.location.href = "blog.html";
+        }
+    </script>
+</body>
+</html>
